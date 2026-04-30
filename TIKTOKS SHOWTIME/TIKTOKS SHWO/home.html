@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Trendy Memory</title>
+    <style>
+        body {
+            font-family: 'Arial Black', sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .title {
+            margin-bottom: 40px;
+        }
+
+        .title h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .title p {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            font-weight: 900;
+        }
+
+        .cards-preview-container {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            height: 180px;
+            margin: 0 auto 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cards-preview-container img {
+            position: absolute;
+            width: 80px;
+            height: auto;
+            border-radius: 0; /* No curved corners */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cards-preview-container img:nth-child(1) {
+            transform: translateX(-120%) rotate(-15deg);
+        }
+
+        .cards-preview-container img:nth-child(2) {
+            transform: translateX(-40%) rotate(10deg);
+        }
+
+        .cards-preview-container img:nth-child(3) {
+            transform: translateX(40%) rotate(-8deg);
+        }
+
+        .cards-preview-container img:nth-child(4) {
+            transform: translateX(120%) rotate(5deg);
+        }
+
+        button {
+            background-color: #fff;
+            color: #000;
+            font-weight: 900;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+
+        @media (max-width: 400px) {
+            .cards-preview-container {
+                max-width: 280px;
+                height: 150px;
+                margin-bottom: 30px;
+            }
+
+            .cards-preview-container img {
+                width: 60px;
+            }
+
+            .cards-preview-container img:nth-child(1) {
+                transform: translateX(-110%) rotate(-12deg);
+            }
+
+            .cards-preview-container img:nth-child(2) {
+                transform: translateX(-40%) rotate(8deg);
+            }
+
+            .cards-preview-container img:nth-child(3) {
+                transform: translateX(40%) rotate(-6deg);
+            }
+
+            .cards-preview-container img:nth-child(4) {
+                transform: translateX(110%) rotate(5deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Trendy Memory</h1>
+            <p>¿Recuerdas estas<br>tendencias?</p>
+        </div>
+
+        <div class="cards-preview-container">
+            <img src="./Posters/Tiktok_posters_A4_5.jpg" alt="Poster 1">
+            <img src="./Posters/Tiktok_posters_A4_4.jpg" alt="Poster 2">
+            <img src="./Posters/Tiktok_posters_A4_2.jpg" alt="Poster 3">
+            <img src="./Posters/Tiktok_posters_A4_1.jpg" alt="Poster 4">
+        </div>
+
+        <button onclick="startGame()">¡Juega!</button>
+    </div>
+
+    <script>
+        function startGame() {
+            // Redirect to the index.html file in the specified folder
+            window.location.href = 'Memory Game/index.html';
+        }
+    </script>
+</body>
+</html>

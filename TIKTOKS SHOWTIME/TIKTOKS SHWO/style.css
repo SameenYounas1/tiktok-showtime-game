@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trendy Memory Game</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .screen.active {
+      display: flex;
+    }
+
+    h1, h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .cards-preview img {
+      width: 80px;
+      height: auto;
+      margin: 5px;
+      border-radius: 10px;
+    }
+
+    button {
+      background-color: #ff0050;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      grid-gap: 15px;
+      margin-top: 20px;
+    }
+
+    .card {
+      width: 100px;
+      height: 140px;
+      background-color: #111;
+      border-radius: 10px;
+      cursor: pointer;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+    }
+
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .card .back {
+      background-color: #ff0050;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    .timer {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .sticker {
+      width: 80px;
+      margin: 10px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Start Screen -->
+  <div id="start-screen" class="screen active">
+    <h1>Trendy Memory</h1>
+    <p>¿Recuerdas estas tendencias?</p>
+    <div class="cards-preview">
+      <img src="assets/Posters/Tiktok_posters_A4_1.jpg" alt="preview1">
+      <img src="assets/Posters/Tiktok_posters_A4_2.jpg" alt="preview2">
+      <img src="assets/Posters/Tiktok_posters_A4_3.jpg" alt="preview3">
+    </div>
+    <button onclick="startGame()">¡Juega!</button>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-screen" class="screen hidden">
+    <h2>Encuentra las parejas</h2>
+    <div class="game-grid" id="game-grid"></div>
+    <div class="timer" id="timer">00:00</div>
+  </div>
+
+  <!-- Win Screen -->
+  <div id="win-screen" class="screen hidden">
+    <img src="assets/Stickers/TT4B_sticker_FIRE.svg" alt="fire" class="sticker">
+    <h2>¡Enhorabuena!</h2>
+    <p>Recoge tu premio</p>
+    <button onclick="restartGame()">Inicio</button>
+    <img src="assets/Stickers/TT4B_sticker_CUTE.svg" alt="cute" class="sticker">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

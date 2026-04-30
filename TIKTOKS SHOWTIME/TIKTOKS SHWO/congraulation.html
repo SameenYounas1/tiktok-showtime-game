@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Enhorabuena!</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative; /* Needed for absolute positioning of cute-element */
+        }
+
+        .win-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            /* Remove width and max-width to allow content to expand */
+        }
+
+        .fire-emoji {
+            margin-bottom: 30px; /* Increased margin */
+        }
+
+        .fire-emoji img {
+            width: 40vw; /* Take up 40% of the viewport width */
+            height: auto;
+            max-width: 300px; /* Optional: set a maximum size */
+        }
+
+        .congrats-text {
+            font-size: 3em; /* Increased font size */
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .score-text {
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .play-again-button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 20px 40px;
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .play-again-button:hover {
+            background-color: #eee;
+        }
+
+        .cute-element {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+        }
+
+        .cute-element img {
+            width: 30vw; /* Take up 30% of the viewport width */
+            height: auto;
+            max-width: 200px; /* Optional: set a maximum size */
+        }
+    </style>
+</head>
+<body>
+    <div class="win-screen">
+        <div class="fire-emoji"><img src="Stickers/TT4B_sticker_FIRE.svg" alt="FIRE"></div>
+        <div class="congrats-text">¡Enhorabuena!</div>
+        <div class="score-text" id="score-display"></div>
+        <button class="play-again-button" onclick="goToHomePage()">Play Again</button>
+    </div>
+    <div class="cute-element"><img src="Stickers/TT4B_sticker_CUTE.svg" alt="CUTE"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const moves = localStorage.getItem('gameMoves');
+            const time = localStorage.getItem('gameTime');
+            const scoreDisplay = document.getElementById('score-display');
+
+            if (scoreDisplay) {
+                scoreDisplay.textContent = `Moves: ${moves} | Time: ${time}s`;
+            }
+        });
+
+        function goToHomePage() {
+            window.location.href = 'home.html'; // Updated path: home.html is in the same directory
+        }
+    </script>
+</body>
+</html>
